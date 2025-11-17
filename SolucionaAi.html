@@ -1914,7 +1914,8 @@
     </footer>
 
     <script>
-        const API_KEY = "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";
+        // URL del backend seguro - reemplazar con tu URL de producción
+        const API_URL = "https://tu-proyecto.vercel.app/api/ai";
 
         function openModal(id) {
             document.getElementById(id).classList.add('active');
@@ -1969,12 +1970,9 @@
 
         async function callAI(prompt) {
             try {
-                const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+                const res = await fetch(API_URL, {
                     method: "POST",
                     headers: {
-                        "Authorization": `Bearer ${API_KEY}`,
-                        "HTTP-Referer": window.location.href,
-                        "X-Title": "SolucionaTodo AI",
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
@@ -2060,12 +2058,9 @@
             scrollToSolution();
 
             try {
-                const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+                const res = await fetch(API_URL, {
                     method: "POST",
                     headers: {
-                        "Authorization": `Bearer ${API_KEY}`,
-                        "HTTP-Referer": window.location.href,
-                        "X-Title": "SolucionaTodo AI",
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
